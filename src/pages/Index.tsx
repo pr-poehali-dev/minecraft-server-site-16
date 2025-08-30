@@ -33,31 +33,32 @@ export default function Index() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background cyberpunk-grid">
       {/* Навигация */}
       <nav className="minecraft-card mx-4 mt-4 p-4">
         <div className="flex items-center justify-between">
-          <h1 className="minecraft-font text-2xl text-primary">MINECRAFT SERVER</h1>
+          <h1 className="minecraft-font text-2xl text-primary neon-glow">MINECRAFT SERVER</h1>
           <div className="flex gap-4">
-            <Button className="minecraft-button minecraft-font text-xs">Главная</Button>
-            <Button variant="outline" className="minecraft-button minecraft-font text-xs">Правила</Button>
-            <Button variant="outline" className="minecraft-button minecraft-font text-xs">Сервер</Button>
+            <Button className="minecraft-button minecraft-font text-xs text-primary-foreground">Главная</Button>
+            <Button variant="outline" className="minecraft-button minecraft-font text-xs neon-border border-secondary text-secondary">Правила</Button>
+            <Button variant="outline" className="minecraft-button minecraft-font text-xs neon-border border-accent text-accent">Сервер</Button>
           </div>
         </div>
       </nav>
 
       {/* Герой секция */}
       <section className="mx-4 mt-6">
-        <Card className="minecraft-card bg-gradient-to-br from-minecraft-grass to-minecraft-dirt text-white overflow-hidden">
-          <CardContent className="p-8 text-center">
-            <h2 className="minecraft-font text-4xl mb-4">🎮 ДОБРО ПОЖАЛОВАТЬ НА СЕРВЕР!</h2>
-            <p className="text-xl mb-6">Лучший выживание сервер в Minecraft</p>
+        <Card className="minecraft-card bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 text-white overflow-hidden relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 gamer-pulse"></div>
+          <CardContent className="p-8 text-center relative z-10">
+            <h2 className="minecraft-font text-4xl mb-4 neon-glow text-primary">🎮 ДОБРО ПОЖАЛОВАТЬ НА СЕРВЕР!</h2>
+            <p className="text-xl mb-6 text-secondary neon-glow">Лучший выживание сервер в Minecraft</p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Button size="lg" className="minecraft-button minecraft-font bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button size="lg" className="minecraft-button minecraft-font bg-primary text-primary-foreground hover:bg-primary/90 neon-glow">
                 <Icon name="Play" className="mr-2" size={16} />
                 ИГРАТЬ
               </Button>
-              <Button size="lg" variant="outline" className="minecraft-button minecraft-font border-white text-white hover:bg-white/10">
+              <Button size="lg" variant="outline" className="minecraft-button minecraft-font neon-border border-accent text-accent hover:bg-accent/10">
                 <Icon name="Users" className="mr-2" size={16} />
                 ДИСКОРД
               </Button>
@@ -68,45 +69,45 @@ export default function Index() {
 
       {/* Статистика сервера */}
       <section className="mx-4 mt-6">
-        <h3 className="minecraft-font text-xl mb-4 text-primary">📊 СТАТИСТИКА СЕРВЕРА</h3>
+        <h3 className="minecraft-font text-xl mb-4 text-primary neon-glow">📊 СТАТИСТИКА СЕРВЕРА</h3>
         <div className="stats-grid">
-          <Card className="minecraft-card">
+          <Card className="minecraft-card neon-border border-secondary/50">
             <CardHeader>
-              <CardTitle className="minecraft-font text-sm text-primary">ИГРОКИ ОНЛАЙН</CardTitle>
+              <CardTitle className="minecraft-font text-sm text-secondary neon-glow">ИГРОКИ ОНЛАЙН</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold mb-2">{serverStats.onlinePlayers}/{serverStats.maxPlayers}</div>
+              <div className="text-2xl font-bold mb-2 text-secondary neon-glow">{serverStats.onlinePlayers}/{serverStats.maxPlayers}</div>
               <Progress value={(serverStats.onlinePlayers / serverStats.maxPlayers) * 100} className="mb-2" />
               <p className="text-sm text-muted-foreground">Загруженность: {Math.round((serverStats.onlinePlayers / serverStats.maxPlayers) * 100)}%</p>
             </CardContent>
           </Card>
 
-          <Card className="minecraft-card">
+          <Card className="minecraft-card neon-border border-accent/50">
             <CardHeader>
-              <CardTitle className="minecraft-font text-sm text-primary">АПТАЙМ</CardTitle>
+              <CardTitle className="minecraft-font text-sm text-accent neon-glow">АПТАЙМ</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-minecraft-grass">{serverStats.uptime}</div>
+              <div className="text-2xl font-bold text-accent neon-glow">{serverStats.uptime}</div>
               <p className="text-sm text-muted-foreground">Сервер работает стабильно</p>
             </CardContent>
           </Card>
 
-          <Card className="minecraft-card">
+          <Card className="minecraft-card neon-border border-primary/50">
             <CardHeader>
-              <CardTitle className="minecraft-font text-sm text-primary">ВЕРСИЯ</CardTitle>
+              <CardTitle className="minecraft-font text-sm text-primary neon-glow">ВЕРСИЯ</CardTitle>
             </CardHeader>
             <CardContent>
-              <Badge className="minecraft-font text-xs">{serverStats.version}</Badge>
+              <Badge className="minecraft-font text-xs bg-primary text-primary-foreground neon-glow">{serverStats.version}</Badge>
               <p className="text-sm text-muted-foreground mt-2">Последняя версия</p>
             </CardContent>
           </Card>
 
-          <Card className="minecraft-card">
+          <Card className="minecraft-card neon-border border-secondary/50">
             <CardHeader>
-              <CardTitle className="minecraft-font text-sm text-primary">TPS</CardTitle>
+              <CardTitle className="minecraft-font text-sm text-secondary neon-glow">TPS</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-minecraft-grass">{serverStats.tps}</div>
+              <div className="text-2xl font-bold text-secondary neon-glow gamer-pulse">{serverStats.tps}</div>
               <p className="text-sm text-muted-foreground">Отличная производительность</p>
             </CardContent>
           </Card>
@@ -122,9 +123,9 @@ export default function Index() {
           </TabsList>
           
           <TabsContent value="players" className="mt-4">
-            <Card className="minecraft-card">
+            <Card className="minecraft-card neon-border border-accent/30">
               <CardHeader>
-                <CardTitle className="minecraft-font text-primary">🏆 ЛУЧШИЕ ИГРОКИ</CardTitle>
+                <CardTitle className="minecraft-font text-accent neon-glow">🏆 ЛУЧШИЕ ИГРОКИ</CardTitle>
                 <CardDescription>Самые активные игроки сервера</CardDescription>
               </CardHeader>
               <CardContent>
@@ -142,7 +143,7 @@ export default function Index() {
                         <Badge variant="outline" className="minecraft-font text-xs">LVL {player.level}</Badge>
                         <Badge 
                           className={`minecraft-font text-xs ${
-                            player.status === 'online' ? 'bg-minecraft-grass text-white' : 'bg-muted'
+                            player.status === 'online' ? 'bg-secondary text-secondary-foreground neon-glow status-online' : 'bg-muted'
                           }`}
                         >
                           {player.status === 'online' ? '🟢 ОНЛАЙН' : '⚫ ОФЛАЙН'}
@@ -156,9 +157,9 @@ export default function Index() {
           </TabsContent>
 
           <TabsContent value="rules" className="mt-4">
-            <Card className="minecraft-card">
+            <Card className="minecraft-card neon-border border-primary/30">
               <CardHeader>
-                <CardTitle className="minecraft-font text-primary">📜 ПРАВИЛА СЕРВЕРА</CardTitle>
+                <CardTitle className="minecraft-font text-primary neon-glow">📜 ПРАВИЛА СЕРВЕРА</CardTitle>
                 <CardDescription>Соблюдайте правила для комфортной игры всех</CardDescription>
               </CardHeader>
               <CardContent>
@@ -182,12 +183,13 @@ export default function Index() {
 
       {/* Подключение к серверу */}
       <section className="mx-4 mb-8">
-        <Card className="minecraft-card bg-gradient-to-r from-minecraft-diamond to-minecraft-water text-white">
-          <CardContent className="p-6 text-center">
-            <h3 className="minecraft-font text-xl mb-4">🔗 ПОДКЛЮЧИТЬСЯ К СЕРВЕРУ</h3>
-            <div className="bg-black/30 p-4 rounded border-2 border-white/20 mb-4">
-              <p className="minecraft-font text-sm">IP: play.minecraft-server.ru</p>
-              <p className="minecraft-font text-sm">Порт: 25565</p>
+        <Card className="minecraft-card bg-gradient-to-r from-primary/20 to-accent/20 text-white neon-border border-primary/50 relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 gamer-pulse"></div>
+          <CardContent className="p-6 text-center relative z-10">
+            <h3 className="minecraft-font text-xl mb-4 text-primary neon-glow">🔗 ПОДКЛЮЧИТЬСЯ К СЕРВЕРУ</h3>
+            <div className="bg-black/50 p-4 rounded border-2 border-accent/50 mb-4 neon-border">
+              <p className="minecraft-font text-sm text-accent neon-glow">IP: play.minecraft-server.ru</p>
+              <p className="minecraft-font text-sm text-secondary neon-glow">Порт: 25565</p>
             </div>
             <p className="text-sm opacity-90">Скопируйте IP адрес и добавьте сервер в свой Minecraft</p>
           </CardContent>
